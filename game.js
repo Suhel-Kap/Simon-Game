@@ -38,7 +38,15 @@ function animatePress(color) {
 }
 
 var gameStart = false;
-$(document).on("keyup",function () {
+$(document).on("keyup", function () {
+  if (!gameStart) {
+    $("#level-title").text("Level " + level);
+    nextSequence();
+    gameStart = true;
+  }
+});
+
+$("#start").click(function () {
   if (!gameStart) {
     $("#level-title").text("Level " + level);
     nextSequence();

@@ -38,7 +38,7 @@ function animatePress(color) {
 }
 
 var gameStart = false;
-$(document).keypress(function () {
+$(document).on("keyup",function () {
   if (!gameStart) {
     $("#level-title").text("Level " + level);
     nextSequence();
@@ -63,7 +63,7 @@ function checkAnswer(currentLevel) {
       $("body").removeClass("game-over");
     }, 200);
     $("#level-title").text("Game Over, Press Any Key to Restart");
-    $(document).keypress(startOver());
+    $(document).keyup(startOver());
   }
 }
 
